@@ -1,0 +1,66 @@
+html {
+   min-height: 100%;
+   position: relative;
+}
+
+.intro {
+   margin: 0px;
+   background-image: url(pictures/stars.JPG);
+   background-color: black;
+   font-family: arial;
+}
+
+.intro-nav {
+   margin: 0px;
+   background-color: yellow;
+   font-family: arial;
+   top: 0px;
+   left: 0px;
+   right: 0px;
+   padding: 10px;
+}
+
+.intro-nav a {
+   margin: 0px;
+   text-decoration: none;
+   color: black;
+}
+
+.intro-nav a:hover {
+   background-color: white;
+   top: 0px;
+}
+
+.welcome {
+   margin: auto;
+   width: 50%;
+   padding: 20px;
+   color: yellow;
+  font-size: 80px;
+  text-align: center;
+}
+
+.login {
+   margin: auto;
+   width: 50%;
+   padding: 20px;
+   border: 3px solid white;
+   background-color: rgba(225, 225, 225, 0.5);
+}
+
+input {
+}
+
+.hoth {
+   margin: 0px;
+   background-image: url(pictures/hoth.JPG);
+   background-size: cover;
+   font-family: arial;
+}
+
+.endor {
+   margin: 0px;
+   background-image: url(pictures/endor.JPG);
+   background-size: cover;
+   font-family: arial;
+}
