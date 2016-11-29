@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/OSU-CS290-F16/final-project-cs290-war-of-stars.git"
   },
-"author" : "Samantha Estrada <estradas@oregonstate.edu>, Katherine Jeffrey <jeffreyk@oregonstate.edu>, Padrig Gillen <gillenp@oregonstate.edu>"
+"author" : "Samantha Estrada <estradas@oregonstate.edu>, Katherine Jeffrey <jeffreyk@oregonstate.edu>, Padrig Gillen <gillenp@oregonstate.edu>",
 "dependencies" : {
   "body-parser": "^1.15.2",
     "express": "^4.14.0",
