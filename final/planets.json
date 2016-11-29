@@ -1,0 +1,65 @@
+{
+  "Hoth": {
+  "Name" : "Hoth",
+  "Terrain" : "Frozen ice plains, glaciers",
+  "Population" : "Fewer than 10",
+  "Region" : "Outer Rim",
+  "Native species" : "Wampas, Tauntauns",
+  "Notable Events" : "Battle of Hoth"
+  },
+  
+  "Tattooine": {
+  "Name" : "Tattoine",
+  "Terrain" : "Desert, canyon",
+  "Population" : "80,000–200,000",
+  "Region" : "Outer Rim",
+  "Native species" : "Jawas, Tusken Raider",
+  "Notable Events" : "Home of Anakin and Luke Skywalker, Jabba the Hut, and Han Solo" 
+  },
+  
+  "Dagobah": {
+  "Name" : "Dagobah",
+  "Terrain" : "Swamp, wetlands",
+  "Population" : "At least one",
+  "Region" : "Outer Rim",
+  "Native species" : "Dagobah python, Dragonsnake, Elephoth",
+  "Notable Events" : "Location of the ancient Jedi Master, Yoda"
+  },
+  
+  "Kashyyyk": {
+  "Name" : "Kashyyyk",
+  "Terrain" : "Forest",
+  "Population" : "56,000,000",
+  "Region" : "Mid Rim",
+  "Native species" : "Wookie",
+  "Notable Events" : "Battle of Kachirho (Clone Wars)"
+  },
+  
+  "Endor": {
+  "Name" : "Endor",
+  "Terrain" : "Forests, savannahs, mountains",
+  "Population" : "30,000,000",
+  "Region" : "Outer Rim",
+  "Native species" : "Ewoks",
+  "Notable Events" : "Battle of Endor"
+  },
+  
+  "Coruscant": {
+  "Name" : "Coruscant",
+  "Terrain" : "Ecumenopolis",
+  "Population" : "Over 1 trillion",
+  "Region" : "Core Worlds",
+  "Native species" : "Human",
+  "Notable Events" : "Home of galatic politics and the Jedi Temple"
+  },
+  
+  "": {
+  "Name" : "",
+  "Terrain" : "",
+  "Population" : "",
+  "Region" : "",
+  "Native species" : "",
+  "Notable Events" :
+  }
+  
+}
