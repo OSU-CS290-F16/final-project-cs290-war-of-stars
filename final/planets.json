@@ -1,5 +1,5 @@
 {
-  "Hoth": {
+  "hoth": {
   "Name" : "Hoth",
   "Terrain" : "Frozen ice plains, glaciers",
   "Population" : "Fewer than 10",
@@ -8,7 +8,7 @@
   "Notable Events" : "Battle of Hoth"
   },
   
-  "Tattooine": {
+  "tattooine": {
   "Name" : "Tattoine",
   "Terrain" : "Desert, canyon",
   "Population" : "80,000–200,000",
@@ -17,7 +17,7 @@
   "Notable Events" : "Home of Anakin and Luke Skywalker, Jabba the Hut, and Han Solo" 
   },
   
-  "Dagobah": {
+  "dagobah": {
   "Name" : "Dagobah",
   "Terrain" : "Swamp, wetlands",
   "Population" : "At least one",
@@ -26,7 +26,7 @@
   "Notable Events" : "Location of the ancient Jedi Master, Yoda"
   },
   
-  "Kashyyyk": {
+  "kashyyyk": {
   "Name" : "Kashyyyk",
   "Terrain" : "Forest",
   "Population" : "56,000,000",
@@ -35,7 +35,7 @@
   "Notable Events" : "Battle of Kachirho (Clone Wars)"
   },
   
-  "Endor": {
+  "endor": {
   "Name" : "Endor",
   "Terrain" : "Forests, savannahs, mountains",
   "Population" : "30,000,000",
@@ -44,7 +44,7 @@
   "Notable Events" : "Battle of Endor"
   },
   
-  "Coruscant": {
+  "coruscant": {
   "Name" : "Coruscant",
   "Terrain" : "Ecumenopolis",
   "Population" : "Over 1 trillion",
