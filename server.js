@@ -19,11 +19,10 @@ app.get('/', function(req, res) {
    });
 });
 
-app.get('/notes/:planet', function(req, res) {
-   var user = req.params.planet.toString();
-   var reqUser = usersData[user];
-   if(user){
-      console.log(reqUser.name);
+app.get('/:planet', function(req, res) {
+   var planet = req.params.planet.toString();
+   var reqPlanet = planets[planet];
+   if(planet){
       res.status(200).render('planet',{
 	 pageTitle: ''
       });
