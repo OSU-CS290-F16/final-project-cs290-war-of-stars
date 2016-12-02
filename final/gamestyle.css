@@ -48,7 +48,11 @@ html {
    background-color: rgba(225, 225, 225, 0.5);
 }
 
-input {
+.page-404 {
+   margin: 0px;
+   background-image: url(pictures/stars.JPG);
+   background-color: black;
+   font-family: arial;
 }
 
 .hoth {
@@ -61,6 +65,27 @@ input {
 .endor {
    margin: 0px;
    background-image: url(pictures/endor.JPG);
+   background-size: cover;
+   font-family: arial;
+}
+
+.coruscant {
+   margin: 0px;
+   background-image: url(pictures/coruscant.JPG);
+   background-size: cover;
+   font-family: arial;
+}
+
+.tatooine {
+   margin: 0px;
+   background-image: url(pictures/tatooine.JPG);
+   background-size: cover;
+   font-family: arial;
+}
+
+.dagobah {
+   margin: 0px;
+   background-image: url(pictures/dagobah.JPG);
    background-size: cover;
    font-family: arial;
 }
