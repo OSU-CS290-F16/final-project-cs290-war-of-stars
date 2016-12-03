@@ -7,16 +7,16 @@
   "Native species" : "Wampas, Tauntauns",
   "Notable Events" : "Battle of Hoth"
   },
-  
+
   "tattooine": {
   "Name" : "Tattoine",
   "Terrain" : "Desert, canyon",
   "Population" : "80,000–200,000",
   "Region" : "Outer Rim",
   "Native species" : "Jawas, Tusken Raider",
-  "Notable Events" : "Home of Anakin and Luke Skywalker, Jabba the Hut, and Han Solo" 
+  "Notable Events" : "Home of Anakin and Luke Skywalker, Jabba the Hut, and Han Solo"
   },
-  
+
   "dagobah": {
   "Name" : "Dagobah",
   "Terrain" : "Swamp, wetlands",
@@ -25,7 +25,7 @@
   "Native species" : "Dagobah python, Dragonsnake, Elephoth",
   "Notable Events" : "Location of the ancient Jedi Master, Yoda"
   },
-  
+
   "kashyyyk": {
   "Name" : "Kashyyyk",
   "Terrain" : "Forest",
@@ -34,7 +34,7 @@
   "Native species" : "Wookie",
   "Notable Events" : "Battle of Kachirho (Clone Wars)"
   },
-  
+
   "endor": {
   "Name" : "Endor",
   "Terrain" : "Forests, savannahs, mountains",
@@ -43,7 +43,7 @@
   "Native species" : "Ewoks",
   "Notable Events" : "Battle of Endor"
   },
-  
+
   "coruscant": {
   "Name" : "Coruscant",
   "Terrain" : "Ecumenopolis",
@@ -51,15 +51,5 @@
   "Region" : "Core Worlds",
   "Native species" : "Human",
   "Notable Events" : "Home of galatic politics and the Jedi Temple"
-  },
-  
-  "": {
-  "Name" : "",
-  "Terrain" : "",
-  "Population" : "",
-  "Region" : "",
-  "Native species" : "",
-  "Notable Events" :
-  }
-  
+  } 
 }

@@ -2,7 +2,7 @@ var path = require('path');
 var express = require('express');
 var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
-var planets = require('./planets');
+var planets = require('./final/planets.json');
 var app = express();
 
 var port = process.env.PORT || 3000;
@@ -11,21 +11,23 @@ var port = process.env.PORT || 3000;
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars');
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'final')));
 
 app.get('/', function(req, res) {
    res.render('index-page',{
-      pageTitle: ''
+      pageTitle: 'Bounty Hunter Game'
    });
 });
 
-app.get('/:planet', function(req, res) {
+app.get('/:planet', function(req, res, next) {
    var planet = req.params.planet.toString();
    var reqPlanet = planets[planet];
-   if(planet){
-      res.status(200).render('planet',{
-	 pageTitle: ''
-      });
+   if (reqPlanet) {
+       res.status(200).render('planet',{
+          pageTitle: "Welcome to " + reqPlanet.Name,
+          name: reqPlanet.Name,
+          planetData: reqPlanet
+       });
    }
    else {
       next();
@@ -43,4 +45,3 @@ app.get('*', function(req, res) {
 app.listen(port, function () {
    console.log("== Listening on port", port);
 });
-

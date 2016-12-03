@@ -5,21 +5,18 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "handlebars views/partials/person-photo.handlebars -f public/person-photo-template.js",
-    "prestart": "npm run build",
     "start": "node server.js"
   },
 "repository": {
     "type": "git",
     "url": "git+https://github.com/OSU-CS290-F16/final-project-cs290-war-of-stars.git"
   },
-"author" : "Samantha Estrada <estradas@oregonstate.edu>, Katherine Jeffrey <jeffreyk@oregonstate.edu>, Padrig Gillen <gillenp@oregonstate.edu>",
+"author" : "Samantha Estrada <estradas@oregonstate.edu>, Katherine Jeffrey <jeffreyk@oregonstate.edu>, Padraig Gillen <gillenp@oregonstate.edu>",
+"license": "UNLICENSED",
 "dependencies" : {
   "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.6"
   }
-} 
-
-
+}
