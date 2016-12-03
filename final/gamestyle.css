@@ -3,6 +3,10 @@ html {
    position: relative;
 }
 
+body {
+   margin: 0px;
+}
+
 .intro {
    margin: 0px;
    background-image: url(pictures/stars.JPG);
@@ -31,6 +35,10 @@ html {
    top: 0px;
 }
 
+.logout {
+   float: right;
+}
+
 .welcome {
    margin: auto;
    width: 50%;
@@ -48,12 +56,27 @@ html {
    background-color: rgba(225, 225, 225, 0.5);
 }
 
+.info {
+   font-family: arial;
+   padding: 10px;
+   color: white;
+   background-color: rgba(0, 0, 0, 0.5);
+   max-width: 200px;
+}
+
 .page-404 {
    margin: 0px;
    background-image: url(pictures/stars.JPG);
    background-color: black;
    font-family: arial;
    color: white;
+}
+
+.planet-name {
+   margin: auto;
+   width: 50%;
+   padding: 25px;
+   font-size: 50px;
 }
 
 .hoth {

@@ -14,6 +14,12 @@ app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname, 'final')));
 
 app.get('/', function(req, res) {
+   res.render('login-page',{
+      pageTitle: 'Bounty Hunter Game'
+   });
+});
+
+app.get('/index', function(req, res) {
    res.render('index-page',{
       pageTitle: 'Bounty Hunter Game'
    });
