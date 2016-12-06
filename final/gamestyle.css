@@ -57,6 +57,10 @@ body {
 }
 
 .info {
+   margin: 0px;
+   position: fixed;
+   top: 30px;
+   z-index: -1;
    font-family: arial;
    padding: 10px;
    color: white;
@@ -77,6 +81,12 @@ body {
    width: 50%;
    padding: 25px;
    font-size: 50px;
+   text-align: center;
+}
+
+li {
+   padding: 15px;
+   line-height: 140%;
 }
 
 .hoth {
