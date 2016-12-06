@@ -9,7 +9,7 @@ body {
 
 .intro {
    margin: 0px;
-   background-image: url(pictures/stars.JPG);
+   background-image: url("https://raw.githubusercontent.com/OSU-CS290-F16/final-project-cs290-war-of-stars/master/final/pictures/stars.jpg");
    background-color: black;
    font-family: arial;
 }
@@ -91,35 +91,35 @@ li {
 
 .hoth {
    margin: 0px;
-   background-image: url(pictures/hoth.JPG);
+   background-image: url("https://raw.githubusercontent.com/OSU-CS290-F16/final-project-cs290-war-of-stars/master/final/pictures/hoth.jpg");
    background-size: cover;
    font-family: arial;
 }
 
 .endor {
    margin: 0px;
-   background-image: url(pictures/endor.JPG);
+   background-image: url("https://raw.githubusercontent.com/OSU-CS290-F16/final-project-cs290-war-of-stars/master/final/pictures/endor.jpg");
    background-size: cover;
    font-family: arial;
 }
 
 .coruscant {
    margin: 0px;
-   background-image: url(pictures/coruscant.JPG);
+   background-image: url("https://raw.githubusercontent.com/OSU-CS290-F16/final-project-cs290-war-of-stars/master/final/pictures/coruscant.jpg");
    background-size: cover;
    font-family: arial;
 }
 
 .tatooine {
    margin: 0px;
-   background-image: url(pictures/tatooine.JPG);
+   background-image: url("https://raw.githubusercontent.com/OSU-CS290-F16/final-project-cs290-war-of-stars/master/final/pictures/tatooine.jpg");
    background-size: cover;
    font-family: arial;
 }
 
 .dagobah {
    margin: 0px;
-   background-image: url(pictures/dagobah.JPG);
+   background-image: url("https://raw.githubusercontent.com/OSU-CS290-F16/final-project-cs290-war-of-stars/master/final/pictures/dagobah.jpeg");
    background-size: cover;
    font-family: arial;
 }
