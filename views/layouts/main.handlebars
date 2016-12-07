@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/gamestyle.css" media="screen">
 
   </head>
-  <body class="{{@key}}">
+  <body {{#if className}}class="{{className}}" {{else}}class="intro"{{/if}}>
 
     {{{body}}}
 
