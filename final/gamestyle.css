@@ -139,16 +139,18 @@ img {
  * **************/
 
 h2 {
+   margin: 0px;
    margin-top: 10px;
 }
 
 .planet-name {
    margin: auto;
    width: 50%;
-   padding: 25px;
+   padding: 5px;
    font-size: 50px;
    text-align: center;
-   background-color: white;
+   color:white;
+   background-color: rgba(0, 0, 0, 0.5);;
 }
 
 .info {
@@ -169,37 +171,47 @@ li {
    line-height: 140%;
 }
 
-.hoth {
+.bounties {
+}
+
+.Hoth {
    margin: 0px;
    background-image: url("https://raw.githubusercontent.com/OSU-CS290-F16/final-project-cs290-war-of-stars/master/final/pictures/hoth.jpg");
    background-size: cover;
    font-family: arial;
 }
 
-.endor {
+.Endor {
    margin: 0px;
    background-image: url("https://raw.githubusercontent.com/OSU-CS290-F16/final-project-cs290-war-of-stars/master/final/pictures/endor.jpg");
    background-size: cover;
    font-family: arial;
 }
 
-.coruscant {
+.Coruscant {
    margin: 0px;
    background-image: url("https://raw.githubusercontent.com/OSU-CS290-F16/final-project-cs290-war-of-stars/master/final/pictures/coruscant.jpg");
    background-size: cover;
    font-family: arial;
 }
 
-.tatooine {
+.Tatooine {
    margin: 0px;
    background-image: url("https://raw.githubusercontent.com/OSU-CS290-F16/final-project-cs290-war-of-stars/master/final/pictures/tatooine.jpg");
    background-size: cover;
    font-family: arial;
 }
 
-.dagobah {
+.Dagobah {
    margin: 0px;
    background-image: url("https://raw.githubusercontent.com/OSU-CS290-F16/final-project-cs290-war-of-stars/master/final/pictures/dagobah.jpeg");
+   background-size: cover;
+   font-family: arial;
+}
+
+.Kashyyyk {
+   margin: 0px;
+   background-image: url("https://raw.githubusercontent.com/OSU-CS290-F16/final-project-cs290-war-of-stars/master/final/pictures/kashyyyk.jpg");
    background-size: cover;
    font-family: arial;
 }
