@@ -105,6 +105,12 @@ img {
    text-align: center;
 }
 
+.planet-click:hover {
+   box-shadow: 2px rgba(225, 225, 225, 0.5);
+   z-index: 90;
+   cursor: pointer;
+}
+
 .caption {
    margin: 0px;
 }
@@ -172,6 +178,13 @@ li {
 }
 
 .bounties {
+   margin: auto;
+   width: 50%;
+   margin-top: 150px;
+   background: black;
+   border: 3px solid grey;
+   font-family: monospace;
+   color: white;
 }
 
 .Hoth {
