@@ -22,6 +22,7 @@ body {
    left: 0px;
    right: 0px;
    padding: 10px;
+   z-index: 90;
 }
 
 .intro-nav a {
@@ -38,6 +39,10 @@ body {
 .logout {
    float: right;
 }
+
+/**************
+ * Login Page *
+ * ************/
 
 .welcome {
    margin: auto;
@@ -56,11 +61,62 @@ body {
    background-color: rgba(225, 225, 225, 0.5);
 }
 
-.info {
+/**************
+ * Index Page *
+ * ************/
+
+.selection-page-header {
+   margin: auto;
+   width: 50%;
+   padding: 20px;
+   color: yellow;
+  font-size: 60px;
+  text-align: center;
+}
+
+.instructions {
    margin: 0px;
    position: fixed;
-   top: 30px;
-   z-index: -1;
+   top: 40px;
+   bottom: 0px;
+   z-index: 10;
+   font-family: arial;
+   padding: 10px;
+   color: white;
+   background-color: rgba(0, 0, 0, 0.5);
+   max-width: 200px;
+}
+
+.planet-selection {
+   margin: auto;
+   width: 50%;
+   padding: 10px;
+   display: flex;
+   flex-wrap: wrap;
+}
+
+img {
+   padding: 20px;
+}
+
+.planet-click {
+   margin: 0px;
+   color: white;
+   text-align: center;
+}
+
+.caption {
+   margin: 0px;
+}
+
+.stats {
+   margin: 0px;
+   position: absolute;;
+   top: 40px;
+   float: right;
+   right: 0;
+   bottom: 0px;
+   z-index: 10;
    font-family: arial;
    padding: 10px;
    color: white;
@@ -70,10 +126,20 @@ body {
 
 .page-404 {
    margin: 0px;
-   background-image: url(pictures/stars.JPG);
+   padding: 30px;
+   background-image: url("https://raw.githubusercontent.com/OSU-CS290-F16/final-project-cs290-war-of-stars/master/final/pictures/stars.jpg");
    background-color: black;
    font-family: arial;
+   font-size: 50px;
    color: white;
+}
+
+/****************
+ * Planet Stuff *
+ * **************/
+
+h2 {
+   margin-top: 10px;
 }
 
 .planet-name {
@@ -82,6 +148,20 @@ body {
    padding: 25px;
    font-size: 50px;
    text-align: center;
+   background-color: white;
+}
+
+.info {
+   margin: 0px;
+   position: fixed;
+   top: 40px;
+   bottom: 0px;
+   z-index: 10;
+   font-family: arial;
+   padding: 10px;
+   color: white;
+   background-color: rgba(0, 0, 0, 0.5);
+   max-width: 200px;
 }
 
 li {

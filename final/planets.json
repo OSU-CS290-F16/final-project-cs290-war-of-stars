@@ -1,6 +1,7 @@
 {
   "hoth": {
   "Name" : "Hoth",
+  "className" : "hoth",
   "Terrain" : "Frozen ice plains, glaciers",
   "Population" : "Fewer than 10",
   "Region" : "Outer Rim",
@@ -10,6 +11,7 @@
 
   "tattooine": {
   "Name" : "Tattoine",
+  "className" : "tattoine",
   "Terrain" : "Desert, canyon",
   "Population" : "80,000–200,000",
   "Region" : "Outer Rim",
@@ -19,6 +21,7 @@
 
   "dagobah": {
   "Name" : "Dagobah",
+  "className" : "dagobah",
   "Terrain" : "Swamp, wetlands",
   "Population" : "At least one",
   "Region" : "Outer Rim",
@@ -28,6 +31,7 @@
 
   "kashyyyk": {
   "Name" : "Kashyyyk",
+  "className" : "kashyyyk",
   "Terrain" : "Forest",
   "Population" : "56,000,000",
   "Region" : "Mid Rim",
@@ -37,6 +41,7 @@
 
   "endor": {
   "Name" : "Endor",
+  "className" : "endor",
   "Terrain" : "Forests, savannahs, mountains",
   "Population" : "30,000,000",
   "Region" : "Outer Rim",
@@ -46,6 +51,7 @@
 
   "coruscant": {
   "Name" : "Coruscant",
+  "className" : "coruscant",
   "Terrain" : "Ecumenopolis",
   "Population" : "Over 1 trillion",
   "Region" : "Core Worlds",
