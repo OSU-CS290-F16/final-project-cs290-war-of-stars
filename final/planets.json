@@ -1,7 +1,6 @@
 {
    "hoth": {
       "Name" : "Hoth",
-      "className" : "hoth",
       "Terrain" : "Frozen ice plains, glaciers",
       "Population" : "Fewer than 10",
       "Region" : "Outer Rim",
@@ -9,113 +8,108 @@
       "Notable Events" : "Battle of Hoth",
       "bounties" : [
       {
-	 "person" : "",
-	 "credits" : ""
+	 "person" : "Wedge Antilles",
+	 "credits" : "5,000" 
       },
       {
-	 "person" : "",
-	 "credits" : ""
+	 "person" : "Cassian Andor",
+	 "credits" : "15,000"
       }
       ]
    },
 
    "tatooine": {
       "Name" : "Tatooine",
-      "className" : "tatooine",
       "Terrain" : "Desert, canyon",
       "Population" : "80,000–200,000",
       "Region" : "Outer Rim",
       "Native species" : "Jawas, Tusken Raider",
       "Notable Events" : "Home of Anakin and Luke Skywalker, Jabba the Hut, and Han Solo",
-	 "bounties" : [
-	 {
-	    "person" : "Han Solo",
-	    "credits" : "10,000"
-	 },
-	 {
-	    "person" : "Luke Skywalker",
-	    "credits" : "30,000"
-	 }
+      "bounties" : [
+      {
+	 "person" : "Han Solo",
+	 "credits" : "20,000"
+      },
+      {
+	 "person" : "Luke Skywalker",
+	 "credits" : "30,000"
+      }
       ]
    },
 
    "dagobah": {
       "Name" : "Dagobah",
-      "className" : "dagobah",
       "Terrain" : "Swamp, wetlands",
       "Population" : "At least one",
       "Region" : "Outer Rim",
       "Native species" : "Dagobah python, Dragonsnake, Elephoth",
       "Notable Events" : "Location of the ancient Jedi Master, Yoda",
-	 "bounties" : [
-	 {
-	    "person" : "Yoda",
-	    "credits" : "100,000"
-	 },
-	 {
-	    "person" : "",
-	    "credits" : ""
-	 }
+      "bounties" : [
+      {
+	 "person" : "Yoda",
+	 "credits" : "100,000"
+      },
+      {
+	 "person" : "Bossk",
+	 "credits" : "5,000"
+      }
       ]
    },
 
    "kashyyyk": {
       "Name" : "Kashyyyk",
-      "className" : "kashyyyk",
       "Terrain" : "Forest",
       "Population" : "56,000,000",
       "Region" : "Mid Rim",
       "Native species" : "Wookie",
       "Notable Events" : "Battle of Kachirho (Clone Wars)",
-	 "bounties" : [
-	 {
-	    "person" : "Chewbaca",
-	    "credits" : "8,000"
-	 },
-	 {
-	    "person" : "",
-	    "credits" : ""
-	 }
+      "bounties" : [
+      {
+	 "person" : "Chewbaca",
+	 "credits" : "15,000"
+      },
+      {
+	 "person" : "Tarfful",
+	 "credits" : "9,000"
+      }
       ]
    },
 
    "endor": {
       "Name" : "Endor",
-      "className" : "endor",
       "Terrain" : "Forests, savannahs, mountains",
       "Population" : "30,000,000",
       "Region" : "Outer Rim",
       "Native species" : "Ewoks",
       "Notable Events" : "Battle of Endor",
-	 "bounties" : [
-	 {
-	    "person" : "",
-	    "credits" : ""
-	 },
-	 {
-	    "person" : "",
-	    "credits" : ""
-	 }
+      "bounties" : [
+      {
+	 "person" : "C3PO",
+	 "credits" : "6,000"
+      },
+      {
+	 "person" : "Poe Dameron",
+	 "credits" : "20,000"
+      }
       ]
    },
 
    "coruscant": {
       "Name" : "Coruscant",
-      "className" : "coruscant",
       "Terrain" : "Ecumenopolis",
       "Population" : "Over 1 trillion",
       "Region" : "Core Worlds",
       "Native species" : "Human",
       "Notable Events" : "Home of galatic politics and the Jedi Temple",
-	 "bounties" : [
-	 {
-	    "person" : "",
-	    "credits" : ""
-	 },
-	 {
-	    "person" : "",
-	    "credits" : ""
-	 }
+      "bounties" : [
+      {
+	 "person" : "Zam Wesell",
+	 "credits" : "10,000" 
+      },
+      {
+	 "person" : "Padme",
+	 "credits" : "40,000"
+      }
       ]
    } 
 }

@@ -183,6 +183,7 @@ li {
    margin-top: 150px;
    background: black;
    border: 3px solid grey;
+   padding: 5px;
    font-family: monospace;
    color: white;
 }
