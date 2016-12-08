@@ -9,7 +9,7 @@ body {
 
 .intro {
    margin: 0px;
-   background-image: url("https://raw.githubusercontent.com/OSU-CS290-F16/final-project-cs290-war-of-stars/master/final/pictures/stars.jpg");
+   background-image: url("/pictures/stars.jpg");
    background-color: black;
    font-family: arial;
 }
@@ -133,7 +133,7 @@ img {
 .page-404 {
    margin: 0px;
    padding: 30px;
-   background-image: url("https://raw.githubusercontent.com/OSU-CS290-F16/final-project-cs290-war-of-stars/master/final/pictures/stars.jpg");
+   background-image: url("/pictures/stars.jpg");
    background-color: black;
    font-family: arial;
    font-size: 50px;
@@ -190,42 +190,42 @@ li {
 
 .Hoth {
    margin: 0px;
-   background-image: url("https://raw.githubusercontent.com/OSU-CS290-F16/final-project-cs290-war-of-stars/master/final/pictures/hoth.jpg");
+   background-image: url("/pictures/hoth.jpg");
    background-size: cover;
    font-family: arial;
 }
 
 .Endor {
    margin: 0px;
-   background-image: url("https://raw.githubusercontent.com/OSU-CS290-F16/final-project-cs290-war-of-stars/master/final/pictures/endor.jpg");
+   background-image: url("/pictures/endor.jpg");
    background-size: cover;
    font-family: arial;
 }
 
 .Coruscant {
    margin: 0px;
-   background-image: url("https://raw.githubusercontent.com/OSU-CS290-F16/final-project-cs290-war-of-stars/master/final/pictures/coruscant.jpg");
+   background-image: url("/pictures/coruscant.jpg");
    background-size: cover;
    font-family: arial;
 }
 
 .Tatooine {
    margin: 0px;
-   background-image: url("https://raw.githubusercontent.com/OSU-CS290-F16/final-project-cs290-war-of-stars/master/final/pictures/tatooine.jpg");
+   background-image: url("/pictures/tatooine.jpg");
    background-size: cover;
    font-family: arial;
 }
 
 .Dagobah {
    margin: 0px;
-   background-image: url("https://raw.githubusercontent.com/OSU-CS290-F16/final-project-cs290-war-of-stars/master/final/pictures/dagobah.jpeg");
+   background-image: url("/pictures/dagobah.jpeg");
    background-size: cover;
    font-family: arial;
 }
 
 .Kashyyyk {
    margin: 0px;
-   background-image: url("https://raw.githubusercontent.com/OSU-CS290-F16/final-project-cs290-war-of-stars/master/final/pictures/kashyyyk.jpg");
+   background-image: url("/pictures/kashyyyk.jpg");
    background-size: cover;
    font-family: arial;
 }
