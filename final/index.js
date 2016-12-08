@@ -26,17 +26,13 @@ for(var i = 0; i < logoutButton.length; i++){
 }
 
 function handleLoginClick(event){
-   var username = document.getElementsByTagName("input")[0].value;
-   console.log(username);
-   if(username != "") {
-      // submit a post request with the username
-      // http://stackoverflow.com/a/134033
-      var hiddenForm = "<form id='dynForm' action='/index' method='post'><input type='hidden' name='user' value='"
-      hiddenForm += username;
-      hiddenForm += "'></form>";
-      document.body.innerHTML += hiddenForm;
-      document.getElementById("dynForm").submit();
-   }
+   // this should be handled now by the 'required' field
+   // i've added server side logic to make sure it doesn't submit empty
+   // var username = document.getElementsByTagName("input")[0].value;
+   // console.log(username);
+   // if(username != "") {
+      // location.replace("/index");
+   //}
 }
 
 var collectButton = document.getElementsByClassName('collect');
