@@ -21,6 +21,14 @@ var mongoDB;
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars');
 
+// Parse all request bodies as JSON
+app.use(bodyParser.json());
+// http://stackoverflow.com/a/12008719
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+}));
+
+// serve final directory out of root (/s)
 app.use(express.static(path.join(__dirname, 'final')));
 
 app.get('/', function(req, res) {
@@ -30,17 +38,25 @@ app.get('/', function(req, res) {
 });
 
 app.get('/index', function(req, res) {
+    // will need to check here if user is logged in
    res.render('index-page',{
-      pageTitle: 'Bounty Hunter Game'
+      pageTitle: 'Bounty Hunter Game: [no user logged in]'
    });
 });
 
 app.post('/index', function(req, res) {
-   // call database
-   user = "Luke";
+   // grab username from POST req
+   username = req.body.username;
+   if (!username) { // no valid username got POSTed
+       console.log("Error, username was not supplied.");
+   }
+
+   // check database to see if user exists
+
+   // deliver page back with fields
    res.render('index-page', {
-      user: user,
-      pageTitle: 'Bounty Hunter Game' + user
+      user: username,
+      pageTitle: 'Bounty Hunter Game: ' + username
    });
 });
 
