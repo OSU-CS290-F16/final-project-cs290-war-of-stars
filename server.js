@@ -35,6 +35,15 @@ app.get('/index', function(req, res) {
    });
 });
 
+app.post('/index', function(req, res) {
+   // call database
+   user = "Luke";
+   res.render('index-page', {
+      user: user,
+      pageTitle: 'Bounty Hunter Game' + user
+   });
+});
+
 app.get('/:planet', function(req, res, next) {
    var planet = req.params.planet.toString();
    var reqPlanet = planets[planet];
