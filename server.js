@@ -171,7 +171,7 @@ MongoClient.connect(mongoURL, function (err, db) {
    mongoDB = db; // successful connection
 
    // remove old users
-   mongoDB.collection('swbhg_users').remove({});
+   //mongoDB.collection('swbhg_users').remove({});
 
    // express now listens on the specified port
    app.listen(port, function () {

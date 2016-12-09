@@ -42,11 +42,9 @@ for(var i = 0; i < collectButton.length; i++){
 
 function handleCollectClick(event){
    var bounty = event.target.parentElement;
-   //console.log(bounty);
 
    // We'll post to the add-photo endpoint for the appropriate person.
    var postUrl = window.location.href + "/collect";
-   console.log(postUrl);
 
    // Start a new request to post our newly added photo as JSON data.
    var postRequest = new XMLHttpRequest();
@@ -55,10 +53,11 @@ function handleCollectClick(event){
 
    // Send our photo data off to the server.
    postRequest.send(JSON.stringify({
-      person: "han Solo",
-      credits: 10
+      person: bounty.id,
+      credits: bounty.getAttribute("credits")
    }));
    bounty.remove();
+   console.log("Update sent to server.");
 }
 
 function handleHomeClick(event){
