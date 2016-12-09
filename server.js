@@ -2,9 +2,10 @@ var path = require('path');
 var express = require('express');
 var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var MongoClient = require('mongodb').MongoClient;
 var planets = require('./final/planets.json');
 var app = express();
-var MongoClient = require('mongodb').MongoClient;
 
 var port = process.env.PORT || 3000;
 
@@ -16,6 +17,9 @@ var mongoPassword = process.env.MONGO_PASSWORD;
 var mongoDBName = process.env.MONGO_DB || "cs290_gillenp";
 var mongoURL = 'mongodb://' + mongoUser + ':' + mongoPassword + '@' + mongoHost + ':' + mongoPort + '/' + mongoDBName;
 var mongoDB;
+
+// set up session tracking
+app.use(session({secret: 'NOTREALLYASECRET', resave: false, saveUninitialized: true}));
 
 // Use Handlebars as the view engine for the app.
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
@@ -38,13 +42,19 @@ app.get('/', function(req, res) {
 });
 
 app.get('/index', function(req, res) {
-    // will need to check here if user is logged in
-   res.render('index-page',{
-      pageTitle: 'Bounty Hunter Game: [no user logged in]'
-   });
+   // console.log(req.session);
+   if (req.session.username) {
+      res.render('index-page', {
+         user: req.session.username,
+         credits: req.session.credits,
+         pageTitle: 'Bounty Hunter Game: ' + req.session.username
+      });
+   } else {
+      res.redirect('/');
+   }
 });
 
-app.post('/index', function(req, res) {
+app.post('/login', function(req, res) {
    var credits = 0; // set default value
 
    // grab username from POST req
@@ -75,12 +85,11 @@ app.post('/index', function(req, res) {
                if (err) console.log("== Error creating user (", username, ")", err);
             });
       }
-      // deliver page back with fields
-      res.render('index-page', {
-         user: username,
-         credits: credits,
-         pageTitle: 'Bounty Hunter Game: ' + username
-      });
+      // set the session properties, and redirect them to main page
+      console.log("Successful login for user:", username);
+      req.session.username = username;
+      req.session.credits = credits;
+      res.redirect("/index");
     });
 });
 
@@ -97,6 +106,13 @@ app.get('/:planet', function(req, res, next) {
    else {
       next();
    }
+});
+
+// destroy user session and send them home
+app.get('/logout', function(req, res) {
+   console.log("Logging out user (", req.session.username, ")");
+   req.session.destroy();
+   res.redirect('/');
 });
 
 app.get('*', function(req, res) {
