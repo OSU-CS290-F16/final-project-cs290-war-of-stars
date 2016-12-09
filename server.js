@@ -125,11 +125,12 @@ app.post('/:planet/collect', function (req, res, next) {
          // update person variables
          var newCredits = req.session.credits + req.body.credits;
          var personCaptured = req.body.person;
-         req.session.bounties.push({
+         console.log(personCaptured, newCredits);
+         /*req.session.bounties.push({
             person: personCaptured
-         });
+         });*/
          // remove available bounty
-         console.log(planets[planet]);
+
 
          // update database
          var collection = mongoDB.collection('swbhg_users');
