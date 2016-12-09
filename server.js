@@ -45,19 +45,43 @@ app.get('/index', function(req, res) {
 });
 
 app.post('/index', function(req, res) {
+   var credits = 0; // set default value
+
    // grab username from POST req
-   username = req.body.username;
+   username = req.body.username.toLowerCase();
    if (!username) { // no valid username got POSTed
        console.log("Error, username was not supplied.");
+       res.status(500).send("Error, POST submission, but no username field");
    }
 
    // check database to see if user exists
+   var collection = mongoDB.collection('swbhg');
+   collection.find({ _id: username }, { _id: 0, credits: 1}).toArray(function (err, users) {
+      // handle DB errors
+      if (err) {
+         console.log("== Error fetching user (", username, ") from database:", err);
+         res.status(500).send("Error fetching from database: " + err);
 
-   // deliver page back with fields
-   res.render('index-page', {
-      user: username,
-      pageTitle: 'Bounty Hunter Game: ' + username
-   });
+      // check if user exists
+      } else if (users.length > 0) {
+         credits = users[0]["credits"];
+
+      // make a new user with 0 credits if necessary
+      } else {
+         console.log("User", username, "not found, created new record with 0 credits");
+         collection.insertOne(
+            { _id: username, credits: 0 },
+            function (err, result) {
+               if (err) console.log("== Error creating user (", username, ")", err);
+            });
+      }
+      // deliver page back with fields
+      res.render('index-page', {
+         user: username,
+         credits: credits,
+         pageTitle: 'Bounty Hunter Game: ' + username
+      });
+    });
 });
 
 app.get('/:planet', function(req, res, next) {
