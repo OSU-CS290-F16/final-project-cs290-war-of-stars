@@ -57,7 +57,7 @@ app.get('/index', function(req, res) {
 app.post('/login', function(req, res) {
    // set default values
    var credits = 0;
-   var bounties = {};
+   var bounties = [];
    // grab username from POST req
    username = req.body.username.toLowerCase();
    if (!username) { // no valid username got POSTed
@@ -82,7 +82,7 @@ app.post('/login', function(req, res) {
       } else {
          console.log("User", username, "not found, created new record with 0 credits");
          collection.insertOne(
-            { _id: username, credits: 0, bounties: {} },
+            { _id: username, credits: 0, bounties: [] },
             function (err, result) {
                if (err) console.log("== Error creating user (", username, ")", err);
             });
@@ -127,9 +127,9 @@ app.post('/:planet/collect', function (req, res, next) {
          // remove commas and 0s, http://stackoverflow.com/a/12559256
          newCredits += parseInt(req.body.credits.replace(/\,/g,''), 10);
          var personCaptured = req.body.person;
-         /*req.session.bounties.push({
+         req.session.bounties.push({
             person: personCaptured
-         });*/
+         });
          req.session.credits = newCredits;
          // remove available bounty
 
