@@ -1,9 +1,12 @@
 <div class="bounties">
 Available Bounties:
 <ul>
+{{#if planetBounties.[0]}}
 {{#each planetBounties}}
-<li id="{{person}}" credits="{{credits}}">{{person}}, Credits: {{credits}} <button type="button" class="collect">Collect</button></li>
-
+   <li id="{{person}}" credits="{{credits}}">{{person}}, Credits: {{credits}} <button type="button" class="collect">Collect</button></li>
 {{/each}}
+{{else}}
+   <li>None at this time, try coming back in a parsec!</li>
+{{/if}}
 </ul>
 </div>

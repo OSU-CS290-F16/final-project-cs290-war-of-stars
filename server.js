@@ -131,8 +131,14 @@ app.post('/:planet/collect', function (req, res, next) {
             person: personCaptured
          });
          req.session.credits = newCredits;
-         // remove available bounty
 
+         // remove available bounty
+         planet.bounties.forEach(function (item, index) {
+            if (item.person === personCaptured) {
+               console.log("Removing bounty for ", item.person);
+               delete planets[req.params.planet].bounties[index];
+            }
+         });
 
          // update database
          var collection = mongoDB.collection('swbhg_users');
