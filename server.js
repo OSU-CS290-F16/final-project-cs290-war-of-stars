@@ -123,12 +123,14 @@ app.post('/:planet/collect', function (req, res, next) {
    if (planet) {
       if (req.body && req.body.person && req.body.credits) {
          // update person variables
-         var newCredits = req.session.credits + req.body.credits;
+         var newCredits = req.session.credits;
+         // remove commas and 0s, http://stackoverflow.com/a/12559256
+         newCredits += parseInt(req.body.credits.replace(/\,/g,''), 10);
          var personCaptured = req.body.person;
-         console.log(personCaptured, newCredits);
          /*req.session.bounties.push({
             person: personCaptured
          });*/
+         req.session.credits = newCredits;
          // remove available bounty
 
 
@@ -171,7 +173,7 @@ MongoClient.connect(mongoURL, function (err, db) {
    mongoDB = db; // successful connection
 
    // remove old users
-   //mongoDB.collection('swbhg_users').remove({});
+   mongoDB.collection('swbhg_users').remove({});
 
    // express now listens on the specified port
    app.listen(port, function () {
