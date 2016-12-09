@@ -12,6 +12,7 @@ body {
    background-image: url("/pictures/stars.jpg");
    background-color: black;
    font-family: arial;
+   cursor: url("/pictures/fighter.png"), auto;
 }
 
 .intro-nav {
@@ -40,6 +41,7 @@ body {
    float: right;
 }
 
+
 /**************
  * Login Page *
  * ************/
@@ -59,7 +61,9 @@ body {
    padding: 20px;
    border: 3px solid white;
    background-color: rgba(225, 225, 225, 0.5);
+   cursor: auto;
 }
+
 
 /**************
  * Index Page *
@@ -108,7 +112,6 @@ img {
 .planet-click:hover {
    box-shadow: 2px rgba(225, 225, 225, 0.5);
    z-index: 90;
-   cursor: pointer;
 }
 
 .caption {
@@ -117,7 +120,7 @@ img {
 
 .stats {
    margin: 0px;
-   position: absolute;;
+   position: absolute;
    top: 40px;
    float: right;
    right: 0;
