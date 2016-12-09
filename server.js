@@ -94,17 +94,21 @@ app.post('/login', function(req, res) {
 });
 
 app.get('/:planet', function(req, res, next) {
-   var planet = req.params.planet.toString();
-   var reqPlanet = planets[planet];
-   if (reqPlanet) {
-       res.status(200).render('planet',{
-          pageTitle: "Welcome to " + reqPlanet.Name,
-          name: reqPlanet.Name,
-          planetData: reqPlanet
-       });
-   }
-   else {
-      next();
+   if (req.session.username) {
+      var planet = req.params.planet.toString();
+      var reqPlanet = planets[planet];
+      if (reqPlanet) {
+          res.status(200).render('planet',{
+             pageTitle: "Welcome to " + reqPlanet.Name,
+             name: reqPlanet.Name,
+             planetData: reqPlanet
+          });
+      }
+      else {
+         next();
+      }
+   } else {
+      res.redirect('/');
    }
 });
 
