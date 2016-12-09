@@ -55,8 +55,9 @@ app.get('/index', function(req, res) {
 });
 
 app.post('/login', function(req, res) {
-   var credits = 0; // set default value
-
+   // set default values
+   var credits = 0;
+   var bounties = {};
    // grab username from POST req
    username = req.body.username.toLowerCase();
    if (!username) { // no valid username got POSTed
@@ -74,9 +75,8 @@ app.post('/login', function(req, res) {
 
       // check if user exists
       } else if (users.length > 0) {
-         console.log(users);
          credits = users[0]["credits"];
-         //bounties = users[0]["bounties"];
+         bounties = users[0]["bounties"];
 
       // make a new user with 0 credits if necessary
       } else {
@@ -91,7 +91,7 @@ app.post('/login', function(req, res) {
       console.log("Successful login for user:", username);
       req.session.username = username;
       req.session.credits = credits;
-      //req.session.bounties = bounties;
+      req.session.bounties = bounties;
       res.redirect("/index");
     });
 });
@@ -102,17 +102,10 @@ app.get('/:planet', function(req, res, next) {
       var reqPlanet = planets[planet];
       var planetBounties = {};
       if (reqPlanet) {
-         var collection = mongoDB.collection('swbhg_planets');
-         collection.find( {_id: planet }, {_id: 0} ).toArray(function (err, traits) {
-            planetBounties = traits[0]["bounties"];
-            planetBounties = JSON.stringify(planetBounties);
-            console.log(planetBounties);
-         });
-
          res.status(200).render('planet',{
             pageTitle: "Welcome to " + reqPlanet.Name,
             name: reqPlanet.Name,
-            planetBounties: planetBounties,
+            planetBounties: reqPlanet.bounties,
             planetData: reqPlanet
          });
       }
@@ -122,6 +115,37 @@ app.get('/:planet', function(req, res, next) {
    } else {
       res.redirect('/');
    }
+});
+
+// ref: https://github.com/OSU-CS290-F16/simple-server-with-api/blob/master/server.js
+app.post('/:planet/collect', function (req, res, next) {
+   var planet = planets[req.params.planet];
+   if (planet) {
+      if (req.body && req.body.person && req.body.credits) {
+         // update person variables
+         var newCredits = req.session.credits + req.body.credits;
+         var personCaptured = req.body.person;
+         req.session.bounties.push({
+            person: personCaptured
+         });
+         // remove available bounty
+         console.log(planets[planet]);
+
+         // update database
+         var collection = mongoDB.collection('swbhg_users');
+         collection.updateOne({ _id: req.session.user },
+            {
+               $set: { "credits": newCredits},
+               $push: { "bounties": personCaptured}
+            }
+         );
+         res.status(200).send();
+      } else {
+         res.status(400).send("Planet person attribute missing.");
+      }
+   } else {
+     next(); // if planet doesn't exist, 404
+  }
 });
 
 // destroy user session and send them home
@@ -137,25 +161,6 @@ app.get('*', function(req, res) {
    });
 });
 
-// grab planet information from planets.json
-function populateDatabase() {
-   // remove old users
-   mongoDB.collection('swbhg_users').remove({});
-
-   // deleting old run time planet database
-   var collection = mongoDB.collection('swbhg_planets');
-   collection.remove({});
-
-   console.log("Populating run time planet bounties database.");
-   Object.keys(planets).forEach(function (item, index) {
-      collection.insertOne(
-         { _id: item, bounties: planets[item]["bounties"] },
-         function (err, result) {
-            if (err) console.log("== Error creating planet (", item, ")", err);
-         });
-   });
-}
-
 // set up MongoDB connection and start server
 MongoClient.connect(mongoURL, function (err, db) {
    if (err) {
@@ -163,7 +168,9 @@ MongoClient.connect(mongoURL, function (err, db) {
       throw err;
    }
    mongoDB = db; // successful connection
-   populateDatabase();
+
+   // remove old users
+   mongoDB.collection('swbhg_users').remove({});
 
    // express now listens on the specified port
    app.listen(port, function () {

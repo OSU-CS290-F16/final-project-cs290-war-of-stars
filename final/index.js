@@ -43,6 +43,30 @@ for(var i = 0; i < collectButton.length; i++){
 function handleCollectClick(event){
    var bounty = event.target.parentElement;
    console.log(bounty);
+
+   // We'll post to the add-photo endpoint for the appropriate person.
+   var postUrl = document.url + "/collect";
+   console.log(postUrl);
+
+   // Start a new request to post our newly added photo as JSON data.
+   var postRequest = new XMLHttpRequest();
+   postRequest.open('POST', postUrl);
+   postRequest.setRequestHeader('Content-Type', 'application/json');
+
+
+   postRequest.addEventListener('load', function (event) {
+      var error;
+      if (event.target.status !== 200) {
+        error = event.target.response;
+      }
+      callback(error);
+   });
+
+   // Send our photo data off to the server.
+   postRequest.send(JSON.stringify({
+      person: "han Solo",
+      credits: 10
+   }));
    bounty.remove();
 }
 

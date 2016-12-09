@@ -2,10 +2,8 @@
 Available Bounties:
 <ul>
 {{#each planetBounties}}
-{{this}}
-<li>{{person}}, Credits: {{credits}} <button type="button">Collect</button></li>
-{{else}}
-None!
+<li id="{{person}}">{{person}}, Credits: {{credits}} <button type="button">Collect</button></li>
+
 {{/each}}
 </ul>
 </div>
