@@ -1,8 +1,11 @@
 <div class="bounties">
 Available Bounties:
 <ul>
-{{#each planetData.bounties}}
+{{#each planetBounties}}
+{{this}}
 <li>{{person}}, Credits: {{credits}} <button type="button">Collect</button></li>
+{{else}}
+None!
 {{/each}}
 </ul>
 </div>

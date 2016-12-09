@@ -43,7 +43,11 @@
 <ul>
 <li>User: {{user}}</li>
 <li>Credits: {{credits}}</li>
-<li>Collected Bounties: </li>
+<li>Collected Bounties:
+   {{#each bounties}}
+   <li>{{person}}</li>
+   {{/each}}
+</li>
 </ul>
 </div>
 </div>

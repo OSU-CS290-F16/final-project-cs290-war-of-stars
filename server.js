@@ -42,11 +42,11 @@ app.get('/', function(req, res) {
 });
 
 app.get('/index', function(req, res) {
-   // console.log(req.session);
    if (req.session.username) {
       res.render('index-page', {
          user: req.session.username,
          credits: req.session.credits,
+         bounties: req.session.bounties,
          pageTitle: 'Bounty Hunter Game: ' + req.session.username
       });
    } else {
@@ -65,8 +65,8 @@ app.post('/login', function(req, res) {
    }
 
    // check database to see if user exists
-   var collection = mongoDB.collection('swbhg');
-   collection.find({ _id: username }, { _id: 0, credits: 1}).toArray(function (err, users) {
+   var collection = mongoDB.collection('swbhg_users');
+   collection.find({ _id: username }, { _id: 0}).toArray(function (err, users) {
       // handle DB errors
       if (err) {
          console.log("== Error fetching user (", username, ") from database:", err);
@@ -74,13 +74,15 @@ app.post('/login', function(req, res) {
 
       // check if user exists
       } else if (users.length > 0) {
+         console.log(users);
          credits = users[0]["credits"];
+         //bounties = users[0]["bounties"];
 
       // make a new user with 0 credits if necessary
       } else {
          console.log("User", username, "not found, created new record with 0 credits");
          collection.insertOne(
-            { _id: username, credits: 0 },
+            { _id: username, credits: 0, bounties: {} },
             function (err, result) {
                if (err) console.log("== Error creating user (", username, ")", err);
             });
@@ -89,20 +91,30 @@ app.post('/login', function(req, res) {
       console.log("Successful login for user:", username);
       req.session.username = username;
       req.session.credits = credits;
+      //req.session.bounties = bounties;
       res.redirect("/index");
     });
 });
 
 app.get('/:planet', function(req, res, next) {
    if (req.session.username) {
-      var planet = req.params.planet.toString();
+      var planet = req.params.planet.toString().toLowerCase();
       var reqPlanet = planets[planet];
+      var planetBounties = {};
       if (reqPlanet) {
-          res.status(200).render('planet',{
-             pageTitle: "Welcome to " + reqPlanet.Name,
-             name: reqPlanet.Name,
-             planetData: reqPlanet
-          });
+         var collection = mongoDB.collection('swbhg_planets');
+         collection.find( {_id: planet }, {_id: 0} ).toArray(function (err, traits) {
+            planetBounties = traits[0]["bounties"];
+            planetBounties = JSON.stringify(planetBounties);
+            console.log(planetBounties);
+         });
+
+         res.status(200).render('planet',{
+            pageTitle: "Welcome to " + reqPlanet.Name,
+            name: reqPlanet.Name,
+            planetBounties: planetBounties,
+            planetData: reqPlanet
+         });
       }
       else {
          next();
@@ -125,6 +137,25 @@ app.get('*', function(req, res) {
    });
 });
 
+// grab planet information from planets.json
+function populateDatabase() {
+   // remove old users
+   mongoDB.collection('swbhg_users').remove({});
+
+   // deleting old run time planet database
+   var collection = mongoDB.collection('swbhg_planets');
+   collection.remove({});
+
+   console.log("Populating run time planet bounties database.");
+   Object.keys(planets).forEach(function (item, index) {
+      collection.insertOne(
+         { _id: item, bounties: planets[item]["bounties"] },
+         function (err, result) {
+            if (err) console.log("== Error creating planet (", item, ")", err);
+         });
+   });
+}
+
 // set up MongoDB connection and start server
 MongoClient.connect(mongoURL, function (err, db) {
    if (err) {
@@ -132,6 +163,7 @@ MongoClient.connect(mongoURL, function (err, db) {
       throw err;
    }
    mongoDB = db; // successful connection
+   populateDatabase();
 
    // express now listens on the specified port
    app.listen(port, function () {
