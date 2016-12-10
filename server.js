@@ -91,7 +91,10 @@ app.post('/login', function(req, res) {
       console.log("Successful login for user:", username);
       req.session.username = username;
       req.session.credits = credits;
-      req.session.bounties = bounties;
+      req.session.bounties = [];
+      bounties.forEach(function (item, index) {
+         req.session.bounties.push({ person: item});
+      });
       res.redirect("/index");
     });
 });
@@ -105,8 +108,7 @@ app.get('/:planet', function(req, res, next) {
             pageTitle: "Welcome to " + reqPlanet.Name,
             name: reqPlanet.Name,
             planetBounties: reqPlanet.bounties,
-            planetData: reqPlanet,
-            username: req.session.username
+            planetData: reqPlanet
          });
       }
       else {
@@ -121,10 +123,10 @@ app.get('/:planet', function(req, res, next) {
 app.post('/:planet/collect', function (req, res, next) {
    var planet = planets[req.params.planet];
    if (planet) {
-      if (req.body && req.body.person && req.body.credits && req.body.username) {
+      if (req.body && req.body.person && req.body.credits) {
          // update person variables
          var newCredits = req.session.credits;
-         var username = req.body.username;
+         var username = req.session.username;
          // remove commas and 0s, http://stackoverflow.com/a/12559256
          newCredits += parseInt(req.body.credits.replace(/\,/g,''), 10);
          var personCaptured = req.body.person;
