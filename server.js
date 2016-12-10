@@ -100,13 +100,13 @@ app.get('/:planet', function(req, res, next) {
    if (req.session.username) {
       var planet = req.params.planet.toString().toLowerCase();
       var reqPlanet = planets[planet];
-      var planetBounties = {};
       if (reqPlanet) {
          res.status(200).render('planet',{
             pageTitle: "Welcome to " + reqPlanet.Name,
             name: reqPlanet.Name,
             planetBounties: reqPlanet.bounties,
-            planetData: reqPlanet
+            planetData: reqPlanet,
+            username: req.session.username
          });
       }
       else {
@@ -121,9 +121,10 @@ app.get('/:planet', function(req, res, next) {
 app.post('/:planet/collect', function (req, res, next) {
    var planet = planets[req.params.planet];
    if (planet) {
-      if (req.body && req.body.person && req.body.credits) {
+      if (req.body && req.body.person && req.body.credits && req.body.username) {
          // update person variables
          var newCredits = req.session.credits;
+         var username = req.body.username;
          // remove commas and 0s, http://stackoverflow.com/a/12559256
          newCredits += parseInt(req.body.credits.replace(/\,/g,''), 10);
          var personCaptured = req.body.person;
@@ -135,22 +136,22 @@ app.post('/:planet/collect', function (req, res, next) {
          // remove available bounty
          planet.bounties.forEach(function (item, index) {
             if (item.person === personCaptured) {
-               console.log("Removing bounty for ", item.person);
+               console.log("Rewarding bounty for ", item.person);
                delete planets[req.params.planet].bounties[index];
             }
          });
 
          // update database
          var collection = mongoDB.collection('swbhg_users');
-         collection.updateOne({ _id: req.session.user },
+         collection.update({ _id: username },
             {
-               $set: { "credits": newCredits},
-               $push: { "bounties": personCaptured}
+               $set: { "credits" : newCredits },
+               $push: { "bounties": personCaptured }
             }
          );
          res.status(200).send();
       } else {
-         res.status(400).send("Planet person attribute missing.");
+         res.status(400).send("Planet needed attributes missing.");
       }
    } else {
      next(); // if planet doesn't exist, 404

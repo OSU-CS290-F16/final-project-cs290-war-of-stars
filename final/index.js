@@ -46,6 +46,9 @@ function handleCollectClick(event){
    // We'll post to the add-photo endpoint for the appropriate person.
    var postUrl = window.location.href + "/collect";
 
+   // get username
+   var user = document.getElementsByClassName("username")[0].id;
+
    // Start a new request to post our newly added photo as JSON data.
    var postRequest = new XMLHttpRequest();
    postRequest.open('POST', postUrl);
@@ -53,8 +56,9 @@ function handleCollectClick(event){
 
    // Send our photo data off to the server.
    postRequest.send(JSON.stringify({
+      username: user,
       person: bounty.id,
-      credits: bounty.getAttribute("credits")
+      credits: bounty.getAttribute("credits"),
    }));
    bounty.remove();
    console.log("Update sent to server.");
