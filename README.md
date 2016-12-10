@@ -25,3 +25,10 @@ final-project-war-of-stars-final-project created by GitHub Classroom
 - Collect bounties, earn money! 
 - Learn about the planet.
 - Leave the planet and choose another one.
+
+
+## Deployment notes
+- This app is only meant to run as one instance.
+- Before starting, you must set the environment variable `MONGO_PASSWORD` to access
+    Padraig Gillen's (`gillenp`) engineering Mongo database.
+- At this time, bounty collections do not persist across server sessions.
